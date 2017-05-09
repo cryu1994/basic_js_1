@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>js</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 1)
+      function runningLogger(){
+        running = 'I am running!';
+        console.log(running);
+      }
+      runningLogger();
+      // 2)
+      function multiplyByTen(num){
+          return num * 10;
+      }
+      multiplyByTen(5);
+
+      // 3)
+      function return_string_one(stringone){
+        var string = stringone;
+        return string;
+      }
+      return_string_one("hello there!");
+
+      function return_string_two(stringtwo){
+        var string2 = stringtwo;
+        return string2;
+      }
+      return_string_two("Welcome!");
+
+      // 4)
+      function caller(x){
+        if(typeof x === "function"){
+          console.log("its a function!")
+          x()
+        }
+      }
+      caller(someFunc);
+
+      function someFunc(){
+        console.log("I am a funciton!")
+        console.log("I am also a func!")
+      }
+
+
+      // 5)
+      function doubleConsole(x, y){
+        if(typeof x === "function" && typeof y === "function"){
+          console.log(x(), y())
+        }
+      }
+      doubleConsole(function(){
+        console.log("hi there");
+        return 'hey!';
+      }, function(){
+        return 5;
+      })
+      function caller2(params){
+        console.log("starting");
+        setTimeout(function(){
+          if(typeof params === "function"){
+            params();
+          }
+        }, 2000)
+        console.log("Ending?");
+        return "Interesting."
+      }
+      caller2(doubleConsole);
+    </script>
+  </body>
+</html>
